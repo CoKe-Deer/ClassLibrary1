@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClassLibrary1</name>
+    </assembly>
+    <members>
+        <member name="T:WinHttp">
+            <summary>
+            WinHttp.WinHttpRequest.5.1类
+            </summary>
+        </member>
+        <member name="M:WinHttp.Between(System.String,System.String,System.String)">
+            <summary>
+            取文本中间
+            </summary>
+            <param name="str"></param>
+            <param name="leftstr"></param>
+            <param name="rightstr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.RtlAdjustPrivilege(System.Int32,System.Boolean,System.Int32,System.Int32@)">
+            <summary>
+            提升权限
+            </summary>
+            <param name="a">需要的权限，以SE_开头的常量，比如</param>
+            <param name="b">如果为真就是打开相应权限，如果为假则是关闭相</param>
+            <param name="c">如果为真则仅提升当前线程权限，否则提升</param>
+            <param name="d">输出原来相应权限的状态（打开 | 关闭）</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.OpenProcess(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            打开进程权限句柄
+            </summary>
+            <param name="a">权限标志,常量</param>
+            <param name="b">是否继承</param>
+            <param name="c">进程标识符</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.VirtualAllocEx(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            申请远程内存
+            </summary>
+            <param name="a">权限句柄</param>
+            <param name="b">首地址</param>
+            <param name="c">内存大小</param>
+            <param name="d">flAllocationType 4096 | 8192</param>
+            <param name="f">flProtect</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.WriteProcessMemory_string(System.Int32,System.Int32,System.String,System.Int32,System.Int32)">
+            <summary>
+            写远程内存
+            </summary>
+            <param name="hProcess">进程句柄</param>
+            <param name="lpBaseAddress">内存地址</param>
+            <param name="lpBuffer">写入内容</param>
+            <param name="nSize">内存大小</param>
+            <param name="lpNumberOfBytesWritten">0</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.LoadLibraryA(System.String)">
+            <summary>
+            加载dll
+            </summary>
+            <param name="a">路径</param>
+            <returns>返回模块句柄</returns>
+        </member>
+        <member name="M:API.GetProcAddress(System.Int32,System.String)">
+            <summary>
+            获取函数地址
+            </summary>
+            <param name="a">模块句柄</param>
+            <param name="b">函数名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.CreateRemoteThread(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            创建远程线程
+            </summary>
+            <param name="a">进程句柄</param>
+            <param name="b">线程安全描述字，指向SECURITY_ATTRIBUTES结构的指针</param>
+            <param name="c">线程栈大小，以字节表示</param>
+            <param name="d">一个LPTHREAD_START_ROUTINE类型的指针，指向在远程进程中执行的函数地址</param>
+            <param name="e">传入参数</param>
+            <param name="f">创建线程的其它标志</param>
+            <param name="g">线程身份标志，如果为NULL</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.CloseHandle(System.Int32)">
+            <summary>
+            关闭内核句柄
+            </summary>
+            <param name="a">内核句柄</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.FreeLibrary(System.Int32)">
+            <summary>
+            关闭模块句柄
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.VirtualFreeEx(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            释放内存
+            </summary>
+            <param name="a">进程句柄</param>
+            <param name="b">内存地址</param>
+            <param name="c">内存大小</param>
+            <param name="d">MEM_DECOMMIT0x4000 16384D这种试 仅标示 内存空间不可用，内存页还将存在。MEM_RELEASE0x8000 32768D这种方式 很彻底，完全回收。</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.TerminateThread(System.Int32,System.Int32)">
+            <summary>
+            强制终止线程
+            </summary>
+            <param name="a">线程句柄</param>
+            <param name="b">退出代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.GetLastError">
+            <summary>
+            返回错误信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.RtlMoveMemory_int(System.Int32@,System.Int32@,System.Int32)">
+            <summary>
+            指针到整数
+            </summary>
+            <param name="a">变量</param>
+            <param name="b">指针</param>
+            <param name="c">长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.LocalSize_int(System.Int32)">
+            <summary>
+            计算整数型的大小
+            </summary>
+            <param name="a">变量</param>
+            <returns>返回大小</returns>
+        </member>
+        <member name="M:API.WriteProcessMemory_整数型(System.Int32,System.Int32,System.Int32@,System.Int32,System.Int32)">
+            <summary>
+            写内存整数型
+            </summary>
+            <param name="a">进程句柄</param>
+            <param name="b">10进制内存地址</param>
+            <param name="c">数值内容</param>
+            <param name="d">数据长度</param>
+            <param name="e">实际长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.ReadProcessMemory_整数型(System.Int32,System.Int32,System.Int32@,System.Int32,System.Int32)">
+            <summary>
+            读内存整数型
+            </summary>
+            <param name="a">进程句柄</param>
+            <param name="b">10进制内存地址</param>
+            <param name="c">返回变量内存</param>
+            <param name="d">要传送的字节数</param>
+            <param name="e">实际传送的字节数</param>
+            <returns></returns>
+        </member>
+        <member name="M:s_文本操作.Between(System.String,System.String,System.String)">
+            <summary>
+            取文本中间的内容
+            </summary>
+            <param name="str"></param>
+            <param name="leftstr"></param>
+            <param name="rightstr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:s_编码转换.bytToStrHex(System.Byte)">
+            <summary>
+            将一个byte转换为16进制的String
+            </summary>
+            <param name="byt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:s_编码转换.bytAryToStrHex(System.Byte[])">
+            <summary>
+            将一个byte数组转换为16进制的String
+            </summary>
+            <param name="bytAry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:s_编码转换.strGbkToStrUcs2(System.String)">
+            <summary>
+            将一个gbk编码的String转换为Ucs2编码的String
+            </summary>
+            <param name="strGbk"></param>
+            <returns></returns>
+        </member>
+        <member name="M:s_编码转换.strUcs2ToBytAry(System.String)">
+            <summary>
+            将一个Ucs2编码的String转换为byte数组
+            </summary>
+            <param name="strUcs2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:s_编码转换.strUcs2ToStrGbk(System.String)">
+            <summary>
+            将一个Ucs2编码的String转换为Gbk编码的String
+            </summary>
+            <param name="strUcs2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:s_编码转换.strXToDec(System.String,System.Int32)">
+            <summary>
+            将其他进制的String转换到十进制数字
+            </summary>
+            <param name="Num"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:s_编码转换.unicodetogb(System.String)">
+            <summary>
+            发条哥的USC2
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:s_编码转换.GetCharGroup(System.String,System.String)">
+            <summary>
+            默认被转码的是UTF-8,中文编码是GB18030
+            </summary>
+            <param name="strChar">被转码的文本</param>
+            <param name="Strina">要转码的编码号</param>
+            <returns>返回转码后的文本</returns>
+        </member>
+        <member name="M:s_编码转换.Get_F_WebUrl(System.String)">
+            <summary>
+            返回已解码的WEB的URL编码
+            </summary>
+            <param name="strin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:s_编码转换.GetUrl_ASCLL(System.String)">
+            <summary>
+            返回已编码的ASCLL文本
+            </summary>
+            <param name="strchar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:s_编码转换.GetUrl_Utf8(System.String)">
+            <summary>
+            返回已编码的UTF8文本
+            </summary>
+            <param name="StrChar">要编码的文本</param>
+            <returns></returns>
+        </member>
+        <member name="T:HttpWeb">
+            <summary>
+            HttpWebRequest方法提交数据
+            </summary>
+        </member>
+        <member name="M:HttpWeb.Get_Location(System.String)">
+            <summary>
+            返回重定向的地址
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HttpWeb.Set_DefaultConnectionLimit(System.Int32)">
+            <summary>
+            设置HttpWebRequest访问最大连接数,不宜超过1024
+            </summary>
+            <param name="b"></param>
+        </member>
+        <member name="M:HttpWeb.HttpWebGET(System.String,System.String,System.Int32)">
+            <summary>
+            快速GET方式访问一个网页
+            </summary>
+            <param name="Url"></param>
+            <param name="cookie"></param>
+            <param name="Timeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HttpWeb.Set_Url(System.String,System.Int32)">
+            <summary>
+            设置访问的网页和类型/第一步
+            </summary>
+            <param name="url"></param>
+            <param name="leix"></param>
+        </member>
+        <member name="M:HttpWeb.Set_Timeout(System.Int32)">
+            <summary>
+            设置超时值
+            </summary>
+            <param name="Timeout"></param>
+        </member>
+        <member name="M:HttpWeb.Set_Cookie(System.String,System.String)">
+            <summary>
+            设置cookie
+            </summary>
+            <param name="cookie"></param>
+            <param name="host"></param>
+        </member>
+        <member name="M:HttpWeb.Set_AllowAutoRedirect(System.Boolean)">
+            <summary>
+            设置是否重定向
+            </summary>
+            <param name="b"></param>
+        </member>
+        <member name="M:HttpWeb.Set_Accept_Encoding">
+            <summary>
+            Accept_Encoding设置为gzip,deflate,并设置DecompressionMethods.GZip压缩格式返回
+            </summary>
+        </member>
+        <member name="M:HttpWeb.Set_Headers(System.String,System.String,System.Boolean)">
+            <summary>
+            设置一个协议头
+            </summary>
+            <param name="Head">协议头名</param>
+            <param name="ers">协议头值</param>
+            <param name="b">是否已存在</param>
+        </member>
+        <member name="M:HttpWeb.Set_ContentType(System.String)">
+            <summary>
+            设置ContentType协议头的值,application/x-www-form-urlencoded
+            </summary>
+            <param name="ers"></param>
+        </member>
+        <member name="M:HttpWeb.Set_User_Agent(System.String)">
+            <summary>
+            设置User-Agent的值,Mozilla/5.0
+            </summary>
+            <param name="ers"></param>
+        </member>
+        <member name="M:HttpWeb.Set_body(System.String,System.Text.Encoding,System.Int32)">
+            <summary>
+            设置POST数据以及编码格式、写入超时时间,并设置Content-Length属性的值为提交字符的长度
+            请在提交以前设置ContentType的值,一般为application/x-www-form-urlencoded
+            </summary>
+            <param name="body"></param>
+            <param name="n"></param>
+            <param name="c"></param>
+        </member>
+        <member name="M:HttpWeb.Set_ContentLength(System.Int32)">
+            <summary>
+            设置ContentLength头值
+            </summary>
+            <param name="ers"></param>
+        </member>
+        <member name="M:HttpWeb.Get_html(System.Text.Encoding)">
+            <summary>
+            Send提交返回网页数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HttpWeb.Set_Accept(System.String)">
+            <summary>
+            设置Accept头信息
+            </summary>
+            <param name="Head"></param>
+        </member>
+        <member name="M:HttpWeb.Get_cookie(System.String@,System.Net.CookieCollection@,System.String@,System.Net.WebHeaderCollection@)">
+            <summary>
+            获取cookie和完整协议头,CookieCollection,并调用Abort方法
+            </summary>
+            <param name="cookie"></param>
+            <param name="cookie1"></param>
+            <param name="Head"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:HttpWeb.Turn_off">
+            <summary>
+            手动调用Abort方法
+            </summary>
+        </member>
+        <member name="M:S_Web.Open(System.String)">
+            <summary>
+            使用IE浏览器打开一个网页
+            </summary>
+            <param name="Url"></param>
+        </member>
+        <member name="M:Processye.YC_HS(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            远程调用函数
+            </summary>
+            <param name="pid">进程PID标识符</param>
+            <param name="name">函数名字</param>
+            <param name="DLL">所在DLL库</param>
+            <param name="func">要注入的DLL路径</param>
+            <returns></returns>
+        </member>
+        <member name="T:DxComObject">
+            <summary>
+            Com调用类
+            </summary>
+        </member>
+        <member name="P:DxComObject.Item(System.String)">
+            <summary>
+            获得属性与设置属性
+            </summary>
+            <param name="propName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DomUserJS">
+            <summary>
+            DOM调用JS
+            </summary>
+        </member>
+        <member name="T:TimeOuta">
+            <summary>
+            计时类 不要在程序集变量初始化的时候开始
+            </summary>
+        </member>
+        <member name="M:TimeOuta.GetTimeandstop">
+            <summary>
+            获取已经过去的毫秒
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TimeOuta.Getverytime">
+            <summary>
+            获取更精准的计时时间(超过毫秒)
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
